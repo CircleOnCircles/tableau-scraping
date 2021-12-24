@@ -37,6 +37,11 @@ class TableauScraper:
     session = None
     verify = True
 
+    @property
+    def updated(self):
+        return self.tableauData.get('workbookLastPublishedAt')
+
+
     def __init__(self, logLevel=logging.INFO, delayMs=500, verify=True):
         ch = logging.StreamHandler()
         formatter = logging.Formatter(
